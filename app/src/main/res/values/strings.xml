@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Code Challenge</string>
+    <string name="events_overview_title">Upcoming events from %1$s until %2$s:</string>
+    <string name="event_details_title">Event details:</string>
+    <string name="event_id_title">Id:</string>
+    <string name="event_title">Event:</string>
+    <string name="event_price_title">Ticket price:</string>
+    <string name="event_date_title">Date:</string>
+    <string name="event_description_title">Description:</string>
+    <string name="event_email_title">Contact email:</string>
+    <string name="event_phone_title">Contact phone:</string>
+    <string name="event_address_title">Address:</string>
+    <string name="price_ascending_title">Price by ascending</string>
+    <string name="price_descending_title">Price by descending</string>
+    <string name="date_ascending_title">Date by ascending</string>
+    <string name="date_descending_title">Date by descending</string>
+    <string name="date_filter_outdated">Filter outdated events</string>
+</resources>

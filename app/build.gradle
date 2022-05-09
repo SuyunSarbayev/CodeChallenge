@@ -1,0 +1,148 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "androidx.navigation.safeargs.kotlin"
+    id "kotlin-parcelize"
+}
+
+android {
+    compileSdk 31
+
+    testOptions {
+        // Used for Unit testing Android dependent elements in /test folder
+        unitTests.includeAndroidResources  = true
+        unitTests.returnDefaultValues = true
+    }
+
+    defaultConfig {
+        applicationId "com.excelsior.codechallenge"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    /*
+    *  General components
+    * */
+
+    // https://mvnrepository.com/artifact/androidx.core/core-ktx
+    implementation "androidx.core:core-ktx:1.7.0"
+
+    // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
+    implementation "androidx.appcompat:appcompat:1.3.1"
+
+    // https://mvnrepository.com/artifact/com.google.android.material/material
+    implementation "com.google.android.material:material:1.4.0"
+
+    // https://mvnrepository.com/artifact/androidx.constraintlayout/constraintlayout
+    implementation "androidx.constraintlayout:constraintlayout:2.1.1"
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha06'
+    androidTestImplementation 'androidx.test:rules:1.4.1-alpha05'
+
+    /*
+    *  Architecture components
+    * */
+
+    // https://mvnrepository.com/artifact/android.arch.navigation
+    def navigation_version = "2.3.5"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+    /*
+    *  Utils
+    * */
+
+    // https://github.com/JakeWharton/timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    /*
+    *  DI
+    * */
+
+    // https://search.maven.org/artifact/io.insert-koin/koin-android-ext
+    def koin_version = "3.1.2"
+    implementation "io.insert-koin:koin-android:$koin_version"
+
+    /*
+    *  Network
+    * */
+
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2
+    def retrofit_version = "2.9.0"
+    def okhttp3_version = "4.7.2"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp3_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
+
+    /*
+    *  Test
+    * */
+
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation "junit:junit:4.13.2"
+
+    // https://mvnrepository.com/artifact/com.google.truth/truth
+    testImplementation "com.google.truth:truth:1.1.3"
+
+    // https://search.maven.org/artifact/io.insert-koin/koin-android-ext
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+
+    // https://mvnrepository.com/artifact/androidx.arch.core/core-testing
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    // https://mvnrepository.com/artifact/io.mockk/mockk
+    testImplementation "io.mockk:mockk:1.12.0"
+
+    testImplementation 'org.mockito:mockito-inline:3.10.0'
+
+    def coroutines_version = "1.5.2"
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-test
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+    /*
+    *  Android test
+    * */
+
+    // https://mvnrepository.com/artifact/androidx.test
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+
+    // https://search.maven.org/artifact/io.insert-koin/koin-android-ext
+    androidTestImplementation "io.insert-koin:koin-test:$koin_version"
+
+    androidTestImplementation('androidx.test.espresso:espresso-contrib:3.5.0-alpha06') {
+        exclude module: "protobuf-lite"
+    }
+
+    def swipe_refresh_layout = "1.1.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout"
+}

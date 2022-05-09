@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    app:startDestination="@id/eventsOverview">
+
+    <fragment
+        android:id="@+id/eventsOverview"
+        android:name="com.excelsior.codechallenge.eventsOverview.ui.EventsOverviewFragment"
+        android:label="EventsOverviewFragment"
+        tools:layout="@layout/events_overview">
+        <action
+            android:id="@+id/action_eventsOverview_to_eventDetail"
+            app:destination="@id/eventDetail"></action>
+
+        <argument
+            android:name="event"
+            android:defaultValue="@null"
+            app:argType="com.excelsior.codechallenge.infrastructure.model.Event"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventDetail"
+        android:name="com.excelsior.codechallenge.eventsOverview.ui.EventDetailFragment"
+        android:label="EventDetailFragment"
+        tools:layout="@layout/event_detail">
+        <argument
+            android:name="event"
+            android:defaultValue="@null"
+            app:argType="com.excelsior.codechallenge.infrastructure.model.Event"
+            app:nullable="true" />
+    </fragment>
+</navigation>

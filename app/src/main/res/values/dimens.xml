@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_0">0dp</dimen>
+    <dimen name="size1x">8dp</dimen>
+    <dimen name="project_text_size_normal">12sp</dimen>
+    <dimen name="size2x">16dp</dimen>
+    <dimen name="size3x">24dp</dimen>
+    <dimen name="corner_radius_12dp">12dp</dimen>
+    <dimen name="card_elevation_12dp">12dp</dimen>
+    <dimen name="card_padding_10dp">10dp</dimen>
+    <dimen name="card_fading_edge_10dp">10dp</dimen>
+    <dimen name="event_detail_title_large_20sp">20sp</dimen>
+</resources>
